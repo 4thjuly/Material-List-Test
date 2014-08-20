@@ -1,3 +1,4 @@
-Figure out why typo in polymer initialization function leads to no error
+Push
+Figure out why typo in polymer initialization function leads to fail withno error
 Paramaterize each item
 Scrollbar to top-level
