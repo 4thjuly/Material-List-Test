@@ -1,0 +1,3 @@
+Figure out why typo in polymer initialization function leads to no error
+Paramaterize each item
+Scrollbar to top-level

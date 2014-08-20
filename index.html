@@ -9,6 +9,7 @@
   <link rel="import" href="bower_components/core-icon-button/core-icon-button.html">
   <link rel="import" href="bower_components/core-toolbar/core-toolbar.html">
   <link rel="import" href="bower_components/core-selector/core-selector.html">
+  <link rel="import" href="network-device.html">
 </head>
 
 <body unresolved>
@@ -53,9 +54,9 @@
           padding: 0;
         }
         .list > * {
-          height: 40px;
-          line-height: 40px;
-          padding: 0 20px;
+          /*height: 40px;*/
+          /*line-height: 40px;*/
+          padding: 5px 20px;
           border-bottom: 1px solid #ccc;
         }
         .list > *.core-selected {
@@ -66,11 +67,12 @@
       <div id="outer">
         <core-toolbar id="core_toolbar">
           <core-icon-button icon="menu" id="core_icon_button"></core-icon-button>
-          <div id="div" flex>Polymer Test</div>
+          <div id="div" flex>Material List Test</div>
         </core-toolbar>
         <core-selector class="list" selected="0">
           <template repeat="{{item in items}}">
-            <div>Item: {{item.text}}</div>
+            <!--<div>Item: {{item.text}}</div>-->
+            <network-device></network-device>
           </template>
         </core-selector>
       </div>
