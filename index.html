@@ -9,7 +9,7 @@
   <link rel="import" href="bower_components/core-icon-button/core-icon-button.html">
   <link rel="import" href="bower_components/core-toolbar/core-toolbar.html">
   <link rel="import" href="bower_components/core-selector/core-selector.html">
-  <link rel="import" href="network-device.html">
+  <link rel="import" href="triple-text-item.html">
 </head>
 
 <body unresolved>
@@ -54,8 +54,7 @@
           padding: 0;
         }
         .list > * {
-          /*height: 40px;*/
-          /*line-height: 40px;*/
+
           padding: 5px 20px;
           border-bottom: 1px solid #ccc;
         }
@@ -72,7 +71,7 @@
         <core-selector class="list" selected="0">
           <template repeat="{{item in items}}">
             <!--<div>Item: {{item.text}}</div>-->
-            <network-device></network-device>
+            <triple-text-item text='{{item.text}}' subtext1='[Some text goes here]' subtext2='192.168.0.42'/>
           </template>
         </core-selector>
       </div>
