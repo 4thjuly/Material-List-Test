@@ -9,6 +9,9 @@
   <link rel="import" href="bower_components/core-icon-button/core-icon-button.html">
   <link rel="import" href="bower_components/core-toolbar/core-toolbar.html">
   <link rel="import" href="bower_components/core-selector/core-selector.html">
+  <link rel="import" href="bower_components/core-icons/core-icons.html">
+  <link rel="import" href="bower_components/core-icons/core-icons.html">
+  <link rel="import" href="bower_components/paper-fab/paper-fab.html">
   <link rel="import" href="triple-text-item.html">
 </head>
 
@@ -65,16 +68,20 @@
         .list > *.core-selected {
           background: #D0D0E0;
         }
+        #refresh-fab {
+          top: calc(50%);
+        }
       </style>
   
       <core-toolbar id="core_toolbar">
         <core-icon-button icon="menu" id="core_icon_button"></core-icon-button>
         <div id="div" flex>Material List Test</div>
+        <paper-fab id='refresh-fab' icon="refresh" on-tap="{{handleRefreshTap}}"></paper-fab>
       </core-toolbar>
       <core-selector class="list" selected="0" id='content'>
         <template repeat="{{item in items}}">
           <!--<div>Item: {{item.text}}</div>-->
-          <triple-text-item text='{{item.text}}' subtext1='[Some text goes here]' subtext2='192.168.0.42'/>
+          <triple-text-item text='{{item.text}}' subtext1='[Some text goes here]' subtext2='{{item.ipaddr}}'/>
         </template>
       </core-selector>
 
@@ -82,24 +89,26 @@
   
     <script>
       Polymer('app-element', { 
+        items: [],
+        
         ready: function() {
+          // console.log('Ready...');
           this.items = [];
           for (var i = 1; i <= 20; i++) {
-            this.items.push({text: 'Thing ' + i});
+            var demoText = 'Thing ' + i;
+            var demoIP = '192.168.0.' + Math.round((Math.random() * 255));
+            this.items.push({text: demoText, ipaddr: demoIP});
           }
-          // this.items = [ 
-          //   {text: 'Thing 1'},
-          //   {text: 'Thing 2'},
-          //   {text: 'Thing 3'},
-          //   {text: 'Thing 4'},
-          //   {text: 'Thing 5'},
-          //   {text: 'Thing 6'},
-          //   {text: 'Thing 7'},
-          //   {text: 'Thing 8'},
-          //   {text: 'Thing 9'},
-          //   {text: 'Thing 10'}
-          // ];
-        }
+        },
+        handleRefreshTap: function() {
+          // console.log('Refresh...');
+          this.items.length = 0;
+          for (var i = 1; i <= 20; i++) {
+            var demoText = 'Thing ' + i;
+            var demoIP = '192.168.0.' + Math.round((Math.random() * 255));
+            this.items.push({text: demoText, ipaddr: demoIP});
+          }
+        },
       });
     </script>
   
