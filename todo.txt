@@ -1,1 +1,10 @@
-Scrollbar to top-level
+-- Todo -- 
+Refresh button
+Hidden items menu
+Keyboard support for selector
+Touch scrolling
+
+-- Done --
+Drop shadow on toolbar
+Generate items dynamically
+Scrollbar on main content

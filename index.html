@@ -30,18 +30,23 @@
           grid-template-rows: Auto 1fr;
           grid-template-columns: 100%;
         }
+        * {
+          box-sizing: border-box;
+        }
         #core_toolbar {
           grid-row: 1;
           height: 100%;
           width: 100%;
           background-color: #7070C0;
+          box-shadow:  -5px -8px 15px 10px rgba(0, 0, 0, 0.5)
         }
         #content {
           grid-row: 2;
           height: 100%;
           width: 100%;
-          padding: 10px;
+          /*padding: 10px;*/
           background-color: #F0F0FF;
+          overflow: Auto;
         }
         .list {
           display: block;
@@ -54,7 +59,6 @@
           padding: 0;
         }
         .list > * {
-
           padding: 5px 20px;
           border-bottom: 1px solid #ccc;
         }
@@ -63,36 +67,38 @@
         }
       </style>
   
-      <div id="outer">
-        <core-toolbar id="core_toolbar">
-          <core-icon-button icon="menu" id="core_icon_button"></core-icon-button>
-          <div id="div" flex>Material List Test</div>
-        </core-toolbar>
-        <core-selector class="list" selected="0">
-          <template repeat="{{item in items}}">
-            <!--<div>Item: {{item.text}}</div>-->
-            <triple-text-item text='{{item.text}}' subtext1='[Some text goes here]' subtext2='192.168.0.42'/>
-          </template>
-        </core-selector>
-      </div>
+      <core-toolbar id="core_toolbar">
+        <core-icon-button icon="menu" id="core_icon_button"></core-icon-button>
+        <div id="div" flex>Material List Test</div>
+      </core-toolbar>
+      <core-selector class="list" selected="0" id='content'>
+        <template repeat="{{item in items}}">
+          <!--<div>Item: {{item.text}}</div>-->
+          <triple-text-item text='{{item.text}}' subtext1='[Some text goes here]' subtext2='192.168.0.42'/>
+        </template>
+      </core-selector>
 
     </template>
   
     <script>
       Polymer('app-element', { 
         ready: function() {
-          this.items = [ 
-            {text: 'Thing 1'},
-            {text: 'Thing 2'},
-            {text: 'Thing 3'},
-            {text: 'Thing 4'},
-            {text: 'Thing 5'},
-            {text: 'Thing 6'},
-            {text: 'Thing 7'},
-            {text: 'Thing 8'},
-            {text: 'Thing 9'},
-            {text: 'Thing 10'}
-          ];
+          this.items = [];
+          for (var i = 1; i <= 20; i++) {
+            this.items.push({text: 'Thing ' + i});
+          }
+          // this.items = [ 
+          //   {text: 'Thing 1'},
+          //   {text: 'Thing 2'},
+          //   {text: 'Thing 3'},
+          //   {text: 'Thing 4'},
+          //   {text: 'Thing 5'},
+          //   {text: 'Thing 6'},
+          //   {text: 'Thing 7'},
+          //   {text: 'Thing 8'},
+          //   {text: 'Thing 9'},
+          //   {text: 'Thing 10'}
+          // ];
         }
       });
     </script>
