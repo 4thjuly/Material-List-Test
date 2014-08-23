@@ -1,0 +1,16 @@
+Should filters on repeaters act on individual items rather then entire list?
+Eg repeat="{{item in items : filter}}
+
+filter: function(obj) {
+  // should obb be an item or the items array?
+}
+
+Right now the filter is called once for the list (per assignment), not as 
+individual items in the list change.
+
+==>
+
+Yes, this makes sense, there's no magic in the repeat expression, it's the 'items' array.
+To filter on individual items, use a nested template and if expression.
+
+

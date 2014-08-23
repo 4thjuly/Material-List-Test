@@ -1,10 +1,11 @@
 -- Todo -- 
-Refresh button
-Hidden items menu
+Hidden items menu (filtered binding)
+Layout-to-layout animations on filtering change
 Keyboard support for selector
 Touch scrolling
 
 -- Done --
+Refresh button
 Drop shadow on toolbar
 Generate items dynamically
 Scrollbar on main content

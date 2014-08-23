@@ -69,7 +69,8 @@
           background: #D0D0E0;
         }
         #refresh-fab {
-          top: calc(50%);
+          top: 50%;
+          z-index: 1;
         }
       </style>
   
@@ -79,9 +80,11 @@
         <paper-fab id='refresh-fab' icon="refresh" on-tap="{{handleRefreshTap}}"></paper-fab>
       </core-toolbar>
       <core-selector class="list" selected="0" id='content'>
-        <template repeat="{{item in items}}">
+        <template repeat="{{items}}">
           <!--<div>Item: {{item.text}}</div>-->
-          <triple-text-item text='{{item.text}}' subtext1='[Some text goes here]' subtext2='{{item.ipaddr}}'/>
+          <template if="{{hasSettings}}">
+            <triple-text-item text='{{text}}' subtext1='[Some text goes here]' subtext2='{{ipaddr}}'/>
+          </template>
         </template>
       </core-selector>
 
@@ -94,21 +97,28 @@
         ready: function() {
           // console.log('Ready...');
           this.items = [];
-          for (var i = 1; i <= 20; i++) {
+          var itemCount = 10 + Math.random() * 10;
+          for (var i = 1; i <= itemCount; i++) {
             var demoText = 'Thing ' + i;
             var demoIP = '192.168.0.' + Math.round((Math.random() * 255));
-            this.items.push({text: demoText, ipaddr: demoIP});
+            this.items.push({text: demoText, ipaddr: demoIP, hasSettings: true });
           }
         },
         handleRefreshTap: function() {
           // console.log('Refresh...');
-          this.items.length = 0;
-          for (var i = 1; i <= 20; i++) {
+          this.items = [];
+          var itemCount = 10 + Math.random() * 10;
+          for (var i = 1; i <= itemCount; i++) {
             var demoText = 'Thing ' + i;
             var demoIP = '192.168.0.' + Math.round((Math.random() * 255));
-            this.items.push({text: demoText, ipaddr: demoIP});
+            var hasSettings = Math.round(Math.random());
+            this.items.push({text: demoText, ipaddr: demoIP, hasSettings: hasSettings});
           }
-        },
+        }
+        // hasSettingsFilter: function(item) {
+        //   console.log('Filtering: ' + item);
+        //   return item;
+        // }
       });
     </script>
   
