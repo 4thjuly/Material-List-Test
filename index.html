@@ -75,9 +75,11 @@
       </style>
   
       <core-toolbar id="core_toolbar">
-        <core-icon-button icon="menu" id="core_icon_button"></core-icon-button>
+        <!--<core-icon-button icon="menu" id="core_icon_button"></core-icon-button>-->
         <div id="div" flex>Material List Test</div>
-        <paper-fab id='refresh-fab' icon="refresh" on-tap="{{handleRefreshTap}}"></paper-fab>
+        <!--<paper-fab id='refresh-fab' icon="refresh" on-tap="{{handleRefreshTap}}"></paper-fab>-->
+        <core-icon-button icon="refresh" id="refresh-button" on-tap="{{handleRefreshTap}}"></core-icon-button>
+        <core-icon-button icon="drawer" id="menu_button"></core-icon-button>
       </core-toolbar>
       <core-selector class="list" selected="0" id='content'>
         <template repeat="{{items}}">
