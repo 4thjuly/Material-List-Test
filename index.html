@@ -78,8 +78,8 @@
         <!--<core-icon-button icon="menu" id="core_icon_button"></core-icon-button>-->
         <div id="div" flex>Material List Test</div>
         <!--<paper-fab id='refresh-fab' icon="refresh" on-tap="{{handleRefreshTap}}"></paper-fab>-->
-        <core-icon-button icon="refresh" id="refresh-button" on-tap="{{handleRefreshTap}}"></core-icon-button>
-        <core-icon-button icon="drawer" id="menu_button"></core-icon-button>
+        <core-icon-button icon="unfold-more" id="foldUnfoldButton" on-tap="{{handleFoldUnfold}}"></core-icon-button>
+        <core-icon-button icon="refresh" id="refreshButton" on-tap="{{handleRefreshTap}}"></core-icon-button>
       </core-toolbar>
       <core-selector class="list" selected="0" id='content'>
         <template repeat="{{items}}">
@@ -94,11 +94,10 @@
   
     <script>
       Polymer('app-element', { 
-        items: [],
-        
         ready: function() {
           // console.log('Ready...');
           this.items = [];
+          this.showHidden = false;
           var itemCount = 10 + Math.random() * 10;
           for (var i = 1; i <= itemCount; i++) {
             var demoText = 'Thing ' + i;
@@ -116,6 +115,15 @@
             var hasSettings = Math.round(Math.random());
             this.items.push({text: demoText, ipaddr: demoIP, hasSettings: hasSettings});
           }
+        },
+        handleFoldUnfold: function() {
+          this.showHidden = !this.showHidden;
+          if (this.showHidden) { 
+            this.$.foldUnfoldButton.icon = "unfold-less";
+          } else {
+            this.$.foldUnfoldButton.icon = "unfold-more";
+          } 
+          
         }
         // hasSettingsFilter: function(item) {
         //   console.log('Filtering: ' + item);
