@@ -1,12 +1,12 @@
 -- Todo -- 
-Paper-shadow
 Layout-to-layout animations on filtering change
 Keyboard support for selector
 Touch scrolling
-Paper animations on toolbar buttons
 
 -- Done --
+Paper-shadow
 Hidden items menu (filtered binding)
+Paper animations on toolbar buttons
 Refresh button
 Drop shadow on toolbar
 Generate items dynamically

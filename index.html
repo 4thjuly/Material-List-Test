@@ -12,6 +12,7 @@
   <link rel="import" href="bower_components/core-icons/core-icons.html">
   <link rel="import" href="bower_components/core-icons/core-icons.html">
   <link rel="import" href="bower_components/paper-icon-button/paper-icon-button.html">
+  <link rel="import" href="bower_components/paper-shadow/paper-shadow.html">
   <link rel="import" href="triple-text-item.html">
 </head>
 
@@ -41,7 +42,6 @@
           height: 100%;
           width: 100%;
           background-color: #7070C0;
-          box-shadow:  -5px -8px 15px 10px rgba(0, 0, 0, 0.5)
         }
         #content {
           grid-row: 2;
@@ -80,6 +80,7 @@
         <!--<paper-fab id='refresh-fab' icon="refresh" on-tap="{{handleRefreshTap}}"></paper-fab>-->
         <paper-icon-button icon="unfold-more" id="foldUnfoldButton" on-tap="{{handleFoldUnfold}}"></paper-icon-button>
         <paper-icon-button icon="refresh" id="refreshButton" on-tap="{{handleRefreshTap}}"></paper-icon-button>
+        <paper-shadow z="1"></paper-shadow>
       </core-toolbar>
       <core-selector class="list" selected="0" id='content'>
         <template repeat="{{item in items}}">
