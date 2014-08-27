@@ -13,4 +13,11 @@ individual items in the list change.
 Yes, this makes sense, there's no magic in the repeat expression, it's the 'items' array.
 To filter on individual items, use a nested template and if expression.
 
-
+-------------------------------------------------------------------------------
+Binding scopes seems confusing ie named scopes keep the access to the parent
+but otherwise not. 
+Then again I wouldn't want to reinvent WPF's RelativeSource
+Maybe require named scopes? That would keep it simple.
+-------------------------------------------------------------------------------
+core-animation-pages seems to need 2 lists when animating items in a list. 
+That would seem really expensive!

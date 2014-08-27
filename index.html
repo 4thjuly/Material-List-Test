@@ -11,7 +11,7 @@
   <link rel="import" href="bower_components/core-selector/core-selector.html">
   <link rel="import" href="bower_components/core-icons/core-icons.html">
   <link rel="import" href="bower_components/core-icons/core-icons.html">
-  <link rel="import" href="bower_components/paper-fab/paper-fab.html">
+  <link rel="import" href="bower_components/paper-icon-button/paper-icon-button.html">
   <link rel="import" href="triple-text-item.html">
 </head>
 
@@ -78,14 +78,14 @@
         <!--<core-icon-button icon="menu" id="core_icon_button"></core-icon-button>-->
         <div id="div" flex>Material List Test</div>
         <!--<paper-fab id='refresh-fab' icon="refresh" on-tap="{{handleRefreshTap}}"></paper-fab>-->
-        <core-icon-button icon="unfold-more" id="foldUnfoldButton" on-tap="{{handleFoldUnfold}}"></core-icon-button>
-        <core-icon-button icon="refresh" id="refreshButton" on-tap="{{handleRefreshTap}}"></core-icon-button>
+        <paper-icon-button icon="unfold-more" id="foldUnfoldButton" on-tap="{{handleFoldUnfold}}"></paper-icon-button>
+        <paper-icon-button icon="refresh" id="refreshButton" on-tap="{{handleRefreshTap}}"></paper-icon-button>
       </core-toolbar>
       <core-selector class="list" selected="0" id='content'>
-        <template repeat="{{items}}">
+        <template repeat="{{item in items}}">
           <!--<div>Item: {{item.text}}</div>-->
-          <template if="{{hasSettings}}">
-            <triple-text-item text='{{text}}' subtext1='[Some text goes here]' subtext2='{{ipaddr}}'/>
+          <template if="{{item.hasSettings || showHidden}}">
+            <triple-text-item text='{{item.text}}' subtext1='[Some text goes here]' subtext2='{{item.ipaddr}}'/>
           </template>
         </template>
       </core-selector>
@@ -117,6 +117,7 @@
           }
         },
         handleFoldUnfold: function() {
+          // Show and hide items with no settings
           this.showHidden = !this.showHidden;
           if (this.showHidden) { 
             this.$.foldUnfoldButton.icon = "unfold-less";

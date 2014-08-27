@@ -3,6 +3,7 @@ Hidden items menu (filtered binding)
 Layout-to-layout animations on filtering change
 Keyboard support for selector
 Touch scrolling
+Paper animations on toolbar buttons
 
 -- Done --
 Refresh button
