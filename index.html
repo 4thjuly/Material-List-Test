@@ -10,6 +10,7 @@
   <link rel="import" href="bower_components/core-toolbar/core-toolbar.html">
   <link rel="import" href="bower_components/core-selector/core-selector.html">
   <link rel="import" href="bower_components/core-icons/core-icons.html">
+  <link rel="import" href="bower_components/core-animated-pages/core-animated-pages.html">
   <link rel="import" href="bower_components/core-icons/core-icons.html">
   <link rel="import" href="bower_components/paper-icon-button/paper-icon-button.html">
   <link rel="import" href="bower_components/paper-shadow/paper-shadow.html">
@@ -42,6 +43,7 @@
           height: 100%;
           width: 100%;
           background-color: #7070C0;
+          z-index: 10;
         }
         #content {
           grid-row: 2;
@@ -82,33 +84,34 @@
         <paper-icon-button icon="refresh" id="refreshButton" on-tap="{{handleRefreshTap}}"></paper-icon-button>
         <paper-shadow z="1"></paper-shadow>
       </core-toolbar>
-      <core-selector class="list" selected="0" id='content'>
-        <template repeat="{{item in items}}">
-          <!--<div>Item: {{item.text}}</div>-->
-          <template if="{{item.hasSettings || showHidden}}">
-            <triple-text-item text='{{item.text}}' subtext1='[Some text goes here]' subtext2='{{item.ipaddr}}'/>
-          </template>
-        </template>
-      </core-selector>
-
+      <core-animated-pages id='content' transitions="cross-fade" selected='{{selectedPage}}'>
+        <!--<section>-->
+          <core-selector class="list" selected="0">
+            <template repeat="{{item in items}}">
+              <template if="{{item.hasSettings}}">
+                <triple-text-item hero cross-fade text='{{item.text}}' subtext1='[Some text goes here]' subtext2='{{item.ipaddr}}' hero-id='{{item.ipaddr}}'/>
+              </template>
+            </template>
+          </core-selector>
+        <!--</section>-->
+        <!--<section>-->
+          <core-selector class="list" selected="0">
+            <template repeat="{{item in items}}">
+              <triple-text-item hero cross-fade text='{{item.text}}' subtext1='[Some text goes here]' subtext2='{{item.ipaddr}}' hero-id='{{item.ipaddr}}'/>
+            </template>
+          </core-selector>
+        <!--</section>-->
+      </core-animated-pages>
     </template>
   
     <script>
       Polymer('app-element', { 
-        ready: function() {
-          // console.log('Ready...');
+        created: function() {
+          this.selectedPage = 0;
           this.items = [];
           this.showHidden = false;
-          var itemCount = 10 + Math.random() * 10;
-          for (var i = 1; i <= itemCount; i++) {
-            var demoText = 'Thing ' + i;
-            var demoIP = '192.168.0.' + Math.round((Math.random() * 255));
-            this.items.push({text: demoText, ipaddr: demoIP, hasSettings: true });
-          }
         },
-        handleRefreshTap: function() {
-          // console.log('Refresh...');
-          this.items = [];
+        addRandomItems: function() {
           var itemCount = 10 + Math.random() * 10;
           for (var i = 1; i <= itemCount; i++) {
             var demoText = 'Thing ' + i;
@@ -117,20 +120,29 @@
             this.items.push({text: demoText, ipaddr: demoIP, hasSettings: hasSettings});
           }
         },
+        ready: function() {
+          // console.log('Ready...');
+          // this.items = [];
+          // this.showHidden = false;
+          // this.selected = 0;
+          this.addRandomItems();
+        },
+        handleRefreshTap: function() {
+          // console.log('Refresh...');
+          this.items = [];
+          this.addRandomItems();
+        },
         handleFoldUnfold: function() {
           // Show and hide items with no settings
           this.showHidden = !this.showHidden;
           if (this.showHidden) { 
             this.$.foldUnfoldButton.icon = "unfold-less";
+            this.selectedPage = 1;
           } else {
             this.$.foldUnfoldButton.icon = "unfold-more";
+            this.selectedPage = 0;
           } 
-          
         }
-        // hasSettingsFilter: function(item) {
-        //   console.log('Filtering: ' + item);
-        //   return item;
-        // }
       });
     </script>
   

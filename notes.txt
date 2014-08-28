@@ -17,7 +17,12 @@ To filter on individual items, use a nested template and if expression.
 Binding scopes seems confusing ie named scopes keep the access to the parent
 but otherwise not. 
 Then again I wouldn't want to reinvent WPF's RelativeSource
-Maybe require named scopes? That would keep it simple.
+Maybe require named scopes? That would keep it simple? Nope. This works well in
+practice
 -------------------------------------------------------------------------------
 core-animation-pages seems to need 2 lists when animating items in a list. 
-That would seem really expensive!
+That would seem really expensive.
+How does it deal with deleted items?
+-------------------------------------------------------------------------------
+Changed the content and the shadow dissapeared. Bumping the z-order on the toolbar 
+and it come back. Maybe a note in the paper-shadow docs to warn about z-order issues?
