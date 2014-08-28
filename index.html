@@ -57,7 +57,7 @@
           display: block;
           border: 1px solid #ccc;
           border-bottom: none;
-          background: #E0E0F0;
+          /*background: #E0E0F0;*/
           color: black;
           list-style: none;
           margin: 0;
@@ -84,23 +84,41 @@
         <paper-icon-button icon="refresh" id="refreshButton" on-tap="{{handleRefreshTap}}"></paper-icon-button>
         <paper-shadow z="1"></paper-shadow>
       </core-toolbar>
-      <core-animated-pages id='content' transitions="cross-fade" selected='{{selectedPage}}'>
+      <core-animated-pages id='content' transitions="hero-transition cross-fade" selected='{{selectedPage}}'>
         <!--<section>-->
-          <core-selector class="list" selected="0">
-            <template repeat="{{item in items}}">
-              <template if="{{item.hasSettings}}">
-                <triple-text-item hero cross-fade text='{{item.text}}' subtext1='[Some text goes here]' subtext2='{{item.ipaddr}}' hero-id='{{item.ipaddr}}'/>
-              </template>
-            </template>
-          </core-selector>
+        <!--  <div cross-fade > One </div>-->
+        <!--  <div cross-fade > Two  </div>-->
+        <!--  <div cross-fade > Three </div>-->
         <!--</section>-->
         <!--<section>-->
-          <core-selector class="list" selected="0">
-            <template repeat="{{item in items}}">
+        <!--  <div cross-fade > Four </div>-->
+        <!--  <div cross-fade > Five  </div>-->
+        <!--  <div cross-fade > Six </div>-->
+        <!--</section>-->
+
+        <!--<core-selector cross-fade class="list">-->
+        <!--  <div cross-fade > One </div>-->
+        <!--  <div cross-fade > Two  </div>-->
+        <!--  <div cross-fade > Three </div>-->
+        <!--</core-selector>-->
+        <!--<core-selector cross-fade class="list">-->
+        <!--  <div cross-fade > Four </div>-->
+        <!--  <div cross-fade > Five  </div>-->
+        <!--  <div cross-fade > Six </div>-->
+        <!--</core-selector>-->
+
+        <core-selector cross-fade class="list" selected="0">
+          <template repeat="{{item in items}}">
+            <template if="{{item.hasSettings}}">
               <triple-text-item hero cross-fade text='{{item.text}}' subtext1='[Some text goes here]' subtext2='{{item.ipaddr}}' hero-id='{{item.ipaddr}}'/>
             </template>
-          </core-selector>
-        <!--</section>-->
+          </template>
+        </core-selector>
+        <core-selector cross-fade class="list" selected="0">
+          <template repeat="{{item in items}}">
+            <triple-text-item hero cross-fade text='{{item.text}}' subtext1='[Some text goes here]' subtext2='{{item.ipaddr}}' hero-id='{{item.ipaddr}}'/>
+          </template>
+        </core-selector>
       </core-animated-pages>
     </template>
   

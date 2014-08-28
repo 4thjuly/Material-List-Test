@@ -25,4 +25,15 @@ That would seem really expensive.
 How does it deal with deleted items?
 -------------------------------------------------------------------------------
 Changed the content and the shadow dissapeared. Bumping the z-order on the toolbar 
-and it come back. Maybe a note in the paper-shadow docs to warn about z-order issues?
+and it come back. Maybe a note in the paper-shadow docs to warn about z-order issues
+esp. with something like grid where you'll usually start with the toolbar at the top
+and then add content lower down but the default clipping then puts the shadow behind 
+the content
+-------------------------------------------------------------------------------
+Dev Editor - preserve expand/collapse stuff as it's really useful to be able
+to hide <style> stuff
+-------------------------------------------------------------------------------
+background-color on animated-pages page breaks the animation (since the 2nd panel
+can't show through). Doc warning? Or can we do in-page layout transitions?
+Why doesn't cross-fade on the container element work? [It's explicitly noted in 
+the docs]

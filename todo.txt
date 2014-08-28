@@ -3,7 +3,6 @@ Layout-to-layout animations on filtering change
 Keyboard support for selector
 Touch scrolling
 Is section needed
-test
 
 -- Done --
 Paper-shadow
