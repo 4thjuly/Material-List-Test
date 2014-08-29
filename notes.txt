@@ -37,3 +37,12 @@ background-color on animated-pages page breaks the animation (since the 2nd pane
 can't show through). Doc warning? Or can we do in-page layout transitions?
 Why doesn't cross-fade on the container element work? [It's explicitly noted in 
 the docs]
+-------------------------------------------------------------------------------
+One-time bindings don't work in some cases eg myAttr='#{{fooIndex}}' worked 
+but myAttr='#[[fooIndex]]' didn't. myAttr='[[fooIndex]]' also worked
+-------------------------------------------------------------------------------
+if I'm using valueattr on selector and valueattr is a number and if there's no item
+with that number then selector assumes the number is an index and selects it.
+Should it not do that if valueatt is in use?
+[Borderline issue, I can see the logic]
+
