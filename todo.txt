@@ -1,10 +1,14 @@
 -- Todo -- 
-Layout-to-layout animations on filtering change
+fix fold-unfold button width/height (should be auto)
+preserve selected item between fold/unfold
 Keyboard support for selector
 Touch scrolling
-Is section needed
 
 -- Done --
+Using binding for fold/unfold to pick selected animated page
+Animate fold-unfold button
+Layout-to-layout animations on filtering change
+Is section needed [nope]
 Paper-shadow
 Hidden items menu (filtered binding)
 Paper animations on toolbar buttons

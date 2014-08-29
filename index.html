@@ -70,9 +70,13 @@
         .list > *.core-selected {
           background: #D0D0E0;
         }
-        #refresh-fab {
-          top: 50%;
-          z-index: 1;
+        /*#refresh-fab {*/
+        /*  top: 50%;*/
+        /*  z-index: 1;*/
+        /*}*/
+        #foldUnfoldButton {
+          width: 40px;
+          height: 40px;
         }
       </style>
   
@@ -80,33 +84,23 @@
         <!--<core-icon-button icon="menu" id="core_icon_button"></core-icon-button>-->
         <div id="div" flex>Material List Test</div>
         <!--<paper-fab id='refresh-fab' icon="refresh" on-tap="{{handleRefreshTap}}"></paper-fab>-->
-        <paper-icon-button icon="unfold-more" id="foldUnfoldButton" on-tap="{{handleFoldUnfold}}"></paper-icon-button>
+        <!--<paper-icon-button icon="unfold-more" id="foldUnfoldButton" on-tap="{{handleFoldUnfold}}"></paper-icon-button>-->
+        
+        <core-animated-pages id="foldUnfoldButton" transitions="cross-fade" selected='{{showHidden? 1 : 0}}' on-tap="{{handleFoldUnfold}}">
+          <section>
+              <paper-icon-button icon="unfold-more" cross-fade></paper-icon-button>
+          </section>
+          <section>
+              <paper-icon-button icon="unfold-less" cross-fade></paper-icon-button>
+          </section>
+        </core-animated-pages>
+          
+        
         <paper-icon-button icon="refresh" id="refreshButton" on-tap="{{handleRefreshTap}}"></paper-icon-button>
         <paper-shadow z="1"></paper-shadow>
       </core-toolbar>
-      <core-animated-pages id='content' transitions="hero-transition cross-fade" selected='{{selectedPage}}'>
-        <!--<section>-->
-        <!--  <div cross-fade > One </div>-->
-        <!--  <div cross-fade > Two  </div>-->
-        <!--  <div cross-fade > Three </div>-->
-        <!--</section>-->
-        <!--<section>-->
-        <!--  <div cross-fade > Four </div>-->
-        <!--  <div cross-fade > Five  </div>-->
-        <!--  <div cross-fade > Six </div>-->
-        <!--</section>-->
-
-        <!--<core-selector cross-fade class="list">-->
-        <!--  <div cross-fade > One </div>-->
-        <!--  <div cross-fade > Two  </div>-->
-        <!--  <div cross-fade > Three </div>-->
-        <!--</core-selector>-->
-        <!--<core-selector cross-fade class="list">-->
-        <!--  <div cross-fade > Four </div>-->
-        <!--  <div cross-fade > Five  </div>-->
-        <!--  <div cross-fade > Six </div>-->
-        <!--</core-selector>-->
-
+      
+      <core-animated-pages id='content' transitions="hero-transition cross-fade" selected="{{showHidden ? 1 : 0}}">
         <core-selector cross-fade class="list" selected="0">
           <template repeat="{{item in items}}">
             <template if="{{item.hasSettings}}">
@@ -120,12 +114,13 @@
           </template>
         </core-selector>
       </core-animated-pages>
+      
     </template>
   
     <script>
       Polymer('app-element', { 
         created: function() {
-          this.selectedPage = 0;
+          // this.selectedPage = 0;
           this.items = [];
           this.showHidden = false;
         },
@@ -139,10 +134,6 @@
           }
         },
         ready: function() {
-          // console.log('Ready...');
-          // this.items = [];
-          // this.showHidden = false;
-          // this.selected = 0;
           this.addRandomItems();
         },
         handleRefreshTap: function() {
@@ -153,13 +144,13 @@
         handleFoldUnfold: function() {
           // Show and hide items with no settings
           this.showHidden = !this.showHidden;
-          if (this.showHidden) { 
-            this.$.foldUnfoldButton.icon = "unfold-less";
-            this.selectedPage = 1;
-          } else {
-            this.$.foldUnfoldButton.icon = "unfold-more";
-            this.selectedPage = 0;
-          } 
+          // if (this.showHidden) { 
+          //   this.$.foldUnfoldButton.icon = "unfold-less";
+          //   this.selectedPage = 1;
+          // } else {
+          //   this.$.foldUnfoldButton.icon = "unfold-more";
+          //   this.selectedPage = 0;
+          // } 
         }
       });
     </script>
