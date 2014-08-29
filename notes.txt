@@ -45,4 +45,9 @@ if I'm using valueattr on selector and valueattr is a number and if there's no i
 with that number then selector assumes the number is an index and selects it.
 Should it not do that if valueatt is in use?
 [Borderline issue, I can see the logic]
-
+-------------------------------------------------------------------------------
+You can bind to object references if they're published properties but not if they're 
+on a model. Guess this makes sense.
+-------------------------------------------------------------------------------
+Pleasantly surprised that selector valueattr works if the value is a binding (and 
+that binding is a unique object reference)

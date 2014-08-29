@@ -101,16 +101,16 @@
       </core-toolbar>
       
       <core-animated-pages id='content' transitions="hero-transition cross-fade" selected="{{showHidden ? 1 : 0}}">
-        <core-selector cross-fade class="list" valueattr="thisItem" selected="{{selectedItem}}">
+        <core-selector cross-fade class="list" valueattr="extra" selected="{{selectedItem}}">
           <template repeat="{{item, itemIndex in items}}">
             <template if="{{item.hasSettings}}">
-              <triple-text-item hero cross-fade text='{{item.text}}' subtext1='[Some text goes here]' subtext2='{{item.ipaddr}}' hero-id='{{item.ipaddr}}' thisItem='#{{itemIndex}}'/>
+              <triple-text-item hero cross-fade text='{{item.text}}' subtext1='[Some text goes here]' subtext2='{{item.ipaddr}}' hero-id='{{item.ipaddr}}' extra='{{item}}'/>
             </template>
           </template>
         </core-selector>
-        <core-selector cross-fade class="list" valueattr="thisItem" selected="{{selectedItem}}">
+        <core-selector cross-fade class="list" valueattr="extra" selected="{{selectedItem}}">
           <template repeat="{{item, itemIndex in items}}">
-            <triple-text-item hero cross-fade text='{{item.text}}' subtext1='[Some text goes here]' subtext2='{{item.ipaddr}}' hero-id='{{item.ipaddr}}' thisItem='#{{itemIndex}}'/>
+            <triple-text-item hero cross-fade text='{{item.text}}' subtext1='[Some text goes here]' subtext2='{{item.ipaddr}}' hero-id='{{item.ipaddr}}' extra='{{item}}'/>
           </template>
         </core-selector>
       </core-animated-pages>
@@ -123,7 +123,7 @@
           // this.selectedPage = 0;
           this.items = [];
           this.showHidden = false;
-          this.selectedItem = "";
+          this.selectedItem = { };
         },
         addRandomItems: function() {
           var itemCount = 10 + Math.random() * 10;
@@ -135,8 +135,8 @@
           }
         },
         ready: function() {
+          // console.log('Ready...');
           this.addRandomItems();
-          // this.selectedItem = 0; 
         },
         handleRefreshTap: function() {
           // console.log('Refresh...');
@@ -146,13 +146,6 @@
         handleFoldUnfold: function() {
           // Show and hide items with no settings
           this.showHidden = !this.showHidden;
-          // if (this.showHidden) { 
-          //   this.$.foldUnfoldButton.icon = "unfold-less";
-          //   this.selectedPage = 1;
-          // } else {
-          //   this.$.foldUnfoldButton.icon = "unfold-more";
-          //   this.selectedPage = 0;
-          // } 
         }
       });
     </script>
