@@ -51,3 +51,6 @@ on a model. Guess this makes sense.
 -------------------------------------------------------------------------------
 Pleasantly surprised that selector valueattr works if the value is a binding (and 
 that binding is a unique object reference)
+-------------------------------------------------------------------------------
+ross-fade inherits from core-selector so needs a <shadow>
+element in the template. Not sure I understand this exactly

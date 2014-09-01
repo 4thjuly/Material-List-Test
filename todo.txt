@@ -1,5 +1,7 @@
 -- Todo -- 
 fix fold-unfold button width/height (should be auto)
+  fix ripple
+  animate the fade
 Keyboard support for selector
 Touch scrolling
 
