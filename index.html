@@ -15,6 +15,7 @@
   <link rel="import" href="bower_components/paper-icon-button/paper-icon-button.html">
   <link rel="import" href="bower_components/paper-shadow/paper-shadow.html">
   <link rel="import" href="triple-text-item.html">
+  <link rel="import" href="cross-fade.html">
 </head>
 
 <body unresolved>
@@ -74,10 +75,17 @@
         /*  top: 50%;*/
         /*  z-index: 1;*/
         /*}*/
-        #foldUnfoldButton {
-          width: 40px;
-          height: 40px;
-        }
+        /*#foldUnfoldButton {*/
+        /*  display: grid;*/
+        /*  grid-template-rows: auto;*/
+        /*  grid-template-columns: auto;*/
+          /*width: 40px;*/
+          /*height: 40px;*/
+        /*}*/
+        /*#folderUnfoldButton > * {*/
+        /*  grid-row: 1;*/
+        /*  grid-column: 1;*/
+        /*}*/
       </style>
   
       <core-toolbar id="core_toolbar">
@@ -85,15 +93,20 @@
         <div id="div" flex>Material List Test</div>
         <!--<paper-fab id='refresh-fab' icon="refresh" on-tap="{{handleRefreshTap}}"></paper-fab>-->
         <!--<paper-icon-button icon="unfold-more" id="foldUnfoldButton" on-tap="{{handleFoldUnfold}}"></paper-icon-button>-->
+      
+        <cross-fade id='foldUnfoldButton' selected="{{showHidden ? 1 : 0}}" on-tap="{{handleFoldUnfold}}">
+            <paper-icon-button icon="unfold-more"></paper-icon-button>
+            <paper-icon-button icon="unfold-less"></paper-icon-button>
+        </cross-fade>  
         
-        <core-animated-pages id="foldUnfoldButton" transitions="cross-fade" selected='{{showHidden? 1 : 0}}' on-tap="{{handleFoldUnfold}}">
-          <section>
-              <paper-icon-button icon="unfold-more" cross-fade></paper-icon-button>
-          </section>
-          <section>
-              <paper-icon-button icon="unfold-less" cross-fade></paper-icon-button>
-          </section>
-        </core-animated-pages>
+        <!--<core-animated-pages id="foldUnfoldButton" transitions="cross-fade" selected='{{showHidden? 1 : 0}}' on-tap="{{handleFoldUnfold}}">-->
+        <!--  <section>-->
+        <!--      <paper-icon-button icon="unfold-more" cross-fade></paper-icon-button>-->
+        <!--  </section>-->
+        <!--  <section>-->
+        <!--      <paper-icon-button icon="unfold-less" cross-fade></paper-icon-button>-->
+        <!--  </section>-->
+        <!--</core-animated-pages>-->
           
         
         <paper-icon-button icon="refresh" id="refreshButton" on-tap="{{handleRefreshTap}}"></paper-icon-button>
