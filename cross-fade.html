@@ -1,6 +1,7 @@
 
 
 <!-- Cross-fade 2 items -->
+<!-- Doesn't actually animate yet, just a visibility swithc -->
 <polymer-element name="cross-fade" extends="core-selector">
   <template>
     <style>
@@ -21,7 +22,6 @@
     
     :host {
       display: grid;
-      /*display: flex;*/
       grid-template-rows: auto;
       grid-template-columns: auto;
     }
@@ -37,21 +37,17 @@
       display: none !important;
     }
       
+    #ripple {
+      color: #d1d1d1;
+    }
     </style>
     <shadow></shadow>
-    <paper-ripple class="circle"></paper-ripple>
+    <paper-ripple id='ripple' class="circle"></paper-ripple>
 
 </template>
   
   <script>
     Polymer('cross-fade', {
-      // selected: 0
-      // selectedChanged: function(old) {
-      //   this.super(arguments);
-      // },
-      // selectedItemChanged: function(oldItem) {
-      //   this.super(arguments);
-      // }
       created: function() {
         this.notap = true;
       }
