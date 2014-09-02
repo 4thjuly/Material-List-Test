@@ -16,6 +16,7 @@
   <link rel="import" href="bower_components/paper-shadow/paper-shadow.html">
   <link rel="import" href="triple-text-item.html">
   <link rel="import" href="cross-fade.html">
+  <link rel="import" href="my-paper-icon-button.html">
 </head>
 
 <body unresolved>
@@ -86,6 +87,9 @@
         /*  grid-row: 1;*/
         /*  grid-column: 1;*/
         /*}*/
+        .cross-fade-section {
+          display: flex;
+        }
       </style>
   
       <core-toolbar id="core_toolbar">
@@ -95,8 +99,8 @@
         <!--<paper-icon-button icon="unfold-more" id="foldUnfoldButton" on-tap="{{handleFoldUnfold}}"></paper-icon-button>-->
       
         <cross-fade id='foldUnfoldButton' selected="{{showHidden ? 1 : 0}}" on-tap="{{handleFoldUnfold}}">
-            <paper-icon-button icon="unfold-more"></paper-icon-button>
-            <paper-icon-button icon="unfold-less"></paper-icon-button>
+            <div class='cross-fade-section'><my-paper-icon-button icon="unfold-more"/></div>
+            <div class='cross-fade-section'><my-paper-icon-button icon="unfold-less"/></div>
         </cross-fade>  
         
         <!--<core-animated-pages id="foldUnfoldButton" transitions="cross-fade" selected='{{showHidden? 1 : 0}}' on-tap="{{handleFoldUnfold}}">-->
@@ -158,6 +162,7 @@
         },
         handleFoldUnfold: function() {
           // Show and hide items with no settings
+          console.log('Fold-Unfold...');
           this.showHidden = !this.showHidden;
         }
       });

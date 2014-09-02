@@ -52,5 +52,18 @@ on a model. Guess this makes sense.
 Pleasantly surprised that selector valueattr works if the value is a binding (and 
 that binding is a unique object reference)
 -------------------------------------------------------------------------------
-ross-fade inherits from core-selector so needs a <shadow>
+cross-fade inherits from core-selector so needs a <shadow>
 element in the template. Not sure I understand this exactly
+-------------------------------------------------------------------------------
+Weird behavior with cross-fade. It's display:none-ing to swap a button on a tap. 
+Ripple gets an upAction, the tap fires, then a down action so a ripple is left 
+showing ad ininitum. 
+-------------------------------------------------------------------------------
+Bit confused about what the 'active' event/state is for. Button uses it for 
+'being pressed' and for the 'toggled'. Selector uses it to denote the selected
+thing was tapped. 
+What happens if you put a button in a selector? It activates the selection unless 
+you use notap
+-------------------------------------------------------------------------------
+Cross-fade container idea didn't work for button because the ripple effect needs
+to outlive the hiding/showing of the button

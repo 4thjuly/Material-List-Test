@@ -21,6 +21,7 @@
     
     :host {
       display: grid;
+      /*display: flex;*/
       grid-template-rows: auto;
       grid-template-columns: auto;
     }
@@ -38,6 +39,8 @@
       
     </style>
     <shadow></shadow>
+    <paper-ripple class="circle"></paper-ripple>
+
 </template>
   
   <script>
@@ -49,6 +52,9 @@
       // selectedItemChanged: function(oldItem) {
       //   this.super(arguments);
       // }
+      created: function() {
+        this.notap = true;
+      }
     });
   </script>
 
