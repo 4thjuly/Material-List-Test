@@ -1,12 +1,11 @@
 -- Todo -- 
-fix fold-unfold button width/height (should be auto)
-  fix ripple
-  animate the fade
 Keyboard support for selector
 Touch scrolling
 
 -- Done --
-preserve selected item between fold/unfold
+fix fold-unfold button width/height (should be auto)
+  fix ripple
+  animate the fadepreserve selected item between fold/unfold
 selection key needs to be unique to the itemmaybe hash name+ip?
 Using binding for fold/unfold to pick selected animated page
 Animate fold-unfold button

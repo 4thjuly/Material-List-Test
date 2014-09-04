@@ -1,3 +1,4 @@
+<link rel="import" href="bower_components/core-style/core-style.html">
 
 
 <!-- Cross-fade 2 items -->
@@ -19,30 +20,27 @@
       height: 100%;
       overflow:hidden;
     }
-    
     :host {
       display: grid;
       grid-template-rows: auto;
       grid-template-columns: auto;
     }
-    
-    polyfill-next-selector { content: '.container > *'; }
-    ::content * {
+    ::content > * {
       grid-row: 1;
       grid-column: 1;
+      transition: opacity 500ms cubic-bezier(0.4, 0, 0.2, 1);
     }
-    
-    polyfill-next-selector { content: ':host > *:not(.core-selected):not([animate])'; }
-    ::content > *:not(.core-selected):not([animate]) {
-      display: none !important;
-    }
-      
     #ripple {
       color: #d1d1d1;
     }
+    ::content > .core-selected {
+      opacity: 1;
+    }
+    ::content > :not(.core-selected) {
+      opacity: 0;
+    }
     </style>
     <shadow></shadow>
-    <paper-ripple id='ripple' class="circle"></paper-ripple>
 
 </template>
   

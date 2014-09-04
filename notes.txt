@@ -67,3 +67,10 @@ you use notap
 -------------------------------------------------------------------------------
 Cross-fade container idea didn't work for button because the ripple effect needs
 to outlive the hiding/showing of the button
+-------------------------------------------------------------------------------
+Really need a linter. Missed a closing } in some css and app totally went nutso.
+A warning about unbalanced { } would have been great
+-------------------------------------------------------------------------------
+I kinda struggled with CSS being a noob. Maybe need a CSS-for-apps-for-begginners
+doc. Cover the typical kinds of UI things eg triggering an opacity change
+based on an element having a specific attribute set
