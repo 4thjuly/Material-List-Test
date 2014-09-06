@@ -1,6 +1,9 @@
 -- Todo -- 
 Keyboard support for selector
 Touch scrolling
+Accessibility support eg will screen-reader skip cross-fade and pick up the button?
+  Or logically, my cross-fade is a toggle button?
+  Mark the opacity:0 item as aria-hidden?
 
 -- Done --
 fix fold-unfold button width/height (should be auto)

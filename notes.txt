@@ -73,4 +73,5 @@ A warning about unbalanced { } would have been great
 -------------------------------------------------------------------------------
 I kinda struggled with CSS being a noob. Maybe need a CSS-for-apps-for-begginners
 doc. Cover the typical kinds of UI things eg triggering an opacity change
-based on an element having a specific attribute set
+based on an element having a specific attribute set.
+Actually, the 'obvious' thing of binding to Style works. RTFM
